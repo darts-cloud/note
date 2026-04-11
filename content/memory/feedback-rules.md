@@ -7,12 +7,14 @@ tags: [memory, feedback]
 
 ## ノート保存先とGit運用
 
-記録するデータは `~/note/content` 以下に保存する。
+`~/note/content` 以下を主記憶として使用する。
 
 - このディレクトリはObsidianのVaultであり、かつGitHubリポジトリでもある
+- 新しい記憶は `~/note/content/memory/` 以下にmdファイルとして保存する
 - Git操作は `gh` CLI（または `git`）を使用してpull → commit → push
 - コンフリクトが発生した場合は自分自身（Claude側の内容）を正として解決する（`git checkout --ours` 相当）
 - ディレクトリ名・ファイル名はアルファベットにする
+- タグ名に「claude」を含めない
 
 ## nanoclaw アクセス禁止
 
