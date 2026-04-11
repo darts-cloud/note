@@ -1,6 +1,6 @@
 ---
 title: ユーザー情報
-tags: [claude-memory, user]
+tags: [memory, user]
 ---
 
 # ユーザー情報

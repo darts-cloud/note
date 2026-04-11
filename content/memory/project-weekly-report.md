@@ -1,6 +1,6 @@
 ---
 title: プロジェクト - 週報自動化
-tags: [claude-memory, project, 週報, WBS, Python]
+tags: [memory, project, 週報, WBS, Python]
 ---
 
 # 週報自動化プロジェクト

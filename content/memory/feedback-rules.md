@@ -1,6 +1,6 @@
 ---
 title: フィードバック・運用ルール
-tags: [claude-memory, feedback]
+tags: [memory, feedback]
 ---
 
 # フィードバック・運用ルール
