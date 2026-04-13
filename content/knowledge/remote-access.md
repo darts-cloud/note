@@ -119,3 +119,7 @@ Plaintext
       ↓
 [~/note/content/ (Obsidian記録)]
 ```
+
+## 参考
+こちらの方が詳しい
+https://qiita.com/nogataka/items/e3a87b16ebb32b3a7281
