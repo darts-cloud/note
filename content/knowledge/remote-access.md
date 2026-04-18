@@ -176,6 +176,84 @@ Claude Code（ヘッドレスモード）
 
 ---
 
+### パターン8：Claude Codeの完了・エラーをリモートで通知受け取りたい
+
+**→ Hooks（イベントフック）**
+
+Hooksは`settings.json`に設定するシェルコマンドで、Claude Codeの各イベントに応じて自動実行されます。長時間の処理をリモートで走らせるときに「終わったら通知」する用途に最適です。
+
+**設定ファイル（`~/.claude/settings.json`）**:
+```json
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST https://discord.com/api/webhooks/YOUR_WEBHOOK_URL -H 'Content-Type: application/json' -d '{\"content\": \"Claude Code が完了しました\"}'"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST https://discord.com/api/webhooks/YOUR_WEBHOOK_URL -H 'Content-Type: application/json' -d '{\"content\": \"Claude Codeからの通知\"}'"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**主なイベント**:
+
+| イベント | タイミング |
+|---|---|
+| `Stop` | Claude Codeがレスポンスを終えたとき |
+| `Notification` | 入力待ちや許可待ちになったとき |
+| `PreToolUse` | ツール実行前 |
+| `PostToolUse` | ツール実行後 |
+| `SubagentStop` | サブエージェント完了時 |
+
+**活用パターン**:
+```bash
+# 通知用スクリプト例（~/bin/notify-discord.sh）
+#!/bin/bash
+MESSAGE="${1:-Claude Codeが完了しました}"
+curl -s -X POST "$DISCORD_WEBHOOK_URL" \
+  -H "Content-Type: application/json" \
+  -d "{\"content\": \"$MESSAGE\"}"
+```
+
+```json
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/bin/notify-discord.sh '作業完了！'"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**注意**: Hooksのコマンドはセキュリティ上の重要な処理を行うため、外部入力を直接コマンドに渡さないこと（コマンドインジェクションのリスク）。
+
+---
+
 ## IDE拡張でのリモート開発
 
 ### VS Code Remote Development
@@ -204,6 +282,7 @@ npm install -g @anthropic-ai/claude-code
 | スクリプト組込み | Headless `-p` | ○ | ◎ | △ | 低 |
 | アプリ開発 | Messages API | ○ | ◎ | △ | 中 |
 | チャットUI | MCP + Discord | ◎ | ◎ | ◎ | 高 |
+| 完了通知受け取り | Hooks | △ | ◎ | ◎ | 低 |
 
 ---
 
