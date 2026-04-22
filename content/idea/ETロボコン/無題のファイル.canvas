@@ -2,7 +2,7 @@
 	"nodes":[
 		{"id":"6ae40c536efa681c","type":"text","text":"テスト\n","x":-270,"y":-27,"width":250,"height":50},
 		{"id":"9d5c61c95e990baf","type":"text","text":"あああ","x":-270,"y":91,"width":250,"height":60},
-		{"id":"25cdaf46004f8fb3","x":-345,"y":240,"width":400,"height":400,"type":"file","file":"idea/1_PLAN/ETロボコン/3.AIとの深掘り.md"}
+		{"id":"25cdaf46004f8fb3","x":-345,"y":240,"width":400,"height":400,"type":"file","file":"idea/ETロボコン/3.AIとの深掘り.md"}
 	],
 	"edges":[
 		{"id":"3344d2a0b885bd59","fromNode":"6ae40c536efa681c","fromSide":"bottom","toNode":"9d5c61c95e990baf","toSide":"top"},
