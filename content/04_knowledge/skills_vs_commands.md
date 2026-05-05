@@ -56,3 +56,51 @@
 - **Codex**: OpenAI のプログラミング向け言語モデル
 
 > 簡単に言うと、`skills` は能力の名前や役割、`commands` はその能力を実際に動かすための命令です。
+
+## Skills 定義ファイルの場所
+
+- このドキュメントがあるプロジェクト自体には `SKILL.md` や `Skills.md` の定義ファイルは含まれていません。
+- VS Code の拡張機能フォルダ内に、ツールごとの `SKILL.md` や類似の指示書が置かれています。
+- プロジェクトフォルダとしてイメージするなら、以下の「拡張機能ルート」配下が対象です。
+  - `<VS Code extensions folder>/<extension-id>-<version>/...`
+  - 例: `<extensions-root>/github.copilot-chat-0.45.1/assets/prompts/skills/...`
+
+### ツール別の一般的な場所
+
+- ここでの説明は「一般的にどこにスキル定義が置かれるか」の傾向です。
+- 実際の保存場所はツールやバージョンによって変わり、必ずしもプロジェクト直下ではありません。
+
+#### GitHub Copilot Chat
+- `github.copilot-chat` は VS Code 拡張内にスキル定義を持つことが多いです。
+- 一般的な構成:
+  - `assets/prompts/skills/` 配下
+- 代表的なファイル例:
+  - `assets/prompts/skills/get-search-view-results/SKILL.md`
+  - `assets/prompts/skills/agent-customization/SKILL.md`
+  - `assets/prompts/skills/agent-customization/references/skills.md`
+
+#### Claude Code
+- `anthropic.claude-code` は拡張内でプロンプトやUI定義を管理するケースが多いです。
+- 一般的な構成:
+  - `resources/`
+  - `webview/`
+- そのため、`SKILL.md` というファイル名ではなく、拡張内アセットとして定義されることがあります。
+
+#### Cursor
+- Cursor 系ツールでは、ワークスペース直下の隠しフォルダに定義を置くケースが一般的です。
+- 例:
+  - `.cursor/skills/`
+- この場合、プロジェクトルート以下に `/.cursor/skills/` が存在し、プロジェクト固有のスキル設定を管理します。
+- ただし、Cursor の実装によっては拡張内に配置される場合もあるため、ツールのドキュメントを確認してください。
+
+#### Antigravity
+- Antigravity 系ツールでは、プロジェクト直下の隠しフォルダにスキル定義を置くのが一般的です。
+- 例:
+  - `.antigravity/skills/`
+- VS Code 拡張として扱う場合もありますが、基本はプロジェクト内の隠しフォルダに配置されることが多いです。
+
+## 補足
+
+- `SKILL.md` / 指示書ファイルはツールや拡張の動作定義に使われます。
+- GitHub Copilot Chat などは拡張機能内で管理される一方、Cursor のようにプロジェクト直下の隠しフォルダを使うツールもあります。
+- そのため、「このプロジェクトの場所」ではなく、「ツールごとの一般的な配置」を押さえることが重要です。
