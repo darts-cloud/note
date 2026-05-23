@@ -7,7 +7,6 @@ tags:
   - ユースケース
   - PlantUML
 ---
-
 # ユースケース図 PlantUML ソースコード
 
 UMLの厳密な定義（アクターの一本化）および Cockburn の Sea levelポリシーに準拠した、ETラリー攻略におけるユースケース図の PlantUML ソースコードです。このコードを PlantUML レンダラー（VS Code 拡張機能やオンラインエディタ等）に入力することで、ダイアグラム画像を出力できます。
@@ -37,10 +36,10 @@ actor "競技者\n(Contestant)" as Contestant
 
 ' システム境界とユースケースの定義
 rectangle "SOROT2026連携システム\n(System Boundary)" {
-    usecase "UC-200: ETラリーを攻略する\n(Sea level)" as UC200
-    usecase "UC-201: [オプション] ゲート位置を特定する\n(Fish level)" as UC201
-    usecase "UC-202: [オプション] ゲート通過経路を計画する\n(Fish level)" as UC202
-    usecase "UC-203: ゲートを順次通過する\n(Fish level)" as UC203
+    usecase "UC-200: ETラリーを攻略する" as UC200
+    usecase "UC-201: ゲート位置を特定する" as UC201
+    usecase "UC-202: ゲート通過経路を計画する" as UC202
+    usecase "UC-203: ゲートを順次通過する" as UC203
 }
 
 ' アソシエーション (主アクターから最上位UCへの一本化)
