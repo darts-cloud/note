@@ -46,9 +46,9 @@ rectangle "SOROT2026連携システム\n(System Boundary)" {
 Contestant -- UC200
 
 ' ユースケース間の関係性 (Cockburnポリシーの徹底)
-UC200 ..> UC203 : <<include>>
 UC200 ..> UC201 : <<include>>
 UC200 ..> UC202 : <<include>>
+UC200 ..> UC203 : <<include>>
 
 @enduml
 ```
