@@ -88,41 +88,6 @@ tags:
 ### Mermaid
 - ワークフロー図は Mermaid で記載可。詳細は書きすぎず概要のみ
 
-## PDFの読み方（重要・環境依存）
-
-`Reference/` 配下のPDFはClaude CodeのReadツールから直接開けない（パスにより `pdftoppm not installed` エラー、または PATH の問題）。代わりに **テキスト抽出** で対応する。
-
-### 前提
-- macの場合
-- `brew install poppler` 済み（`/opt/homebrew/bin/pdftoppm`, `/opt/homebrew/bin/pdftotext`）。
-- 抽出したテキストもReferenceディレクトリ配下に保存する。
-
-### 抽出コマンド（セッション開始時に1回実行）
-
-```bash
-mkdir -p /tmp/etrc_pdf_text && \
-for f in /Users/naoki/note/content/05_etrobokon2026/Reference/ETRC2026_*.pdf; do
-  name=$(basename "$f" .pdf)
-  /opt/homebrew/bin/pdftotext -layout "$f" "/tmp/etrc_pdf_text/${name}.txt"
-done
-```
-
-抽出後は `/tmp/etrc_pdf_text/*.txt` を Read ツールで読める。
-- `ETRC2026_participation_rules_V1.0.txt` (664行) — 参加規約・クラス区分・参加費・スケジュール
-- `ETRC2026_rules_basic_applied_1.0.0.txt` (1968行) — 競技規約・コース・採点・難所定義
-- `ETRC2026_dev_shinsa_rules_V1.0.txt` (1274行) — 審査規約・配点・モデル別記述ガイド
-
-セクション抽出例:
-
-```bash
-# アプライドクラス競技ルール（章7）
-awk '/^7\. 【A】競技：アプライドクラス/,/^8\. 無線通信デバイス/' \
-  /tmp/etrc_pdf_text/ETRC2026_rules_basic_applied_1.0.0.txt
-
-# アプライドクラス審査内容（3-1〜3-8）
-sed -n '650,1064p' /tmp/etrc_pdf_text/ETRC2026_dev_shinsa_rules_V1.0.txt
-```
-
 ## 関連ドキュメント
 
 プロジェクト内共通資産 (来年度への引き継ぎ用資料):
@@ -152,7 +117,7 @@ sed -n '650,1064p' /tmp/etrc_pdf_text/ETRC2026_dev_shinsa_rules_V1.0.txt
 
 ## 自分（Claude）への注意
 
-- **UML・分析設計のAI指示ガイドラインの遵守** → 要求モデル、ユースケース図、シーケンス図、FMEA等の作成・修正・レビューを行う際は、必ず `/appendix/` ディレクトリに格納されている、対象モデルの指示ガイド（例：`00_基本対話プロンプト.md` や `02_UMLユースケース図指示ガイド.md` など）のルールを読み込み、それらに厳密に準拠すること。
+- **UML・分析設計のモデリング基本方針・ガイドラインの遵守** → 要求モデル、ユースケース図、シーケンス図、FMEA等の作成・修正・レビューを行う際は、必ず `/Appendix/` ディレクトリに格納されている、対象モデルの基本方針やガイドライン（例：`00_基本方針.md` や `02_UMLユースケース図指示ガイド.md` など）のルールを読み込み、それらに厳密に準拠すること。
 - **PDF直読みは失敗する** → 必ず上記 `pdftotext` フローを通す
 - **PlantUML / `.puml` ファイルは作らない** → UML/SysML図はメンバーが描く。`.md` には「構成仕様（要素・関係の一覧表）」を書く
 - **モデル審査対象** → 規約から判断すること。もし、選択性であれば、メンバーに確認を取ること。
