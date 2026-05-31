@@ -13,7 +13,7 @@ tags:
 ETロボコン関連の検討メモで共通していた運用ルールを、実行しやすい形で統合したガイドライン。
 
 > 関連する詳細手順:
-> - [[knowledge/vibe-coding-guideline]]
+> - [[vibe-coding-guideline]]
 
 ---
 
@@ -43,7 +43,7 @@ ETロボコン関連の検討メモで共通していた運用ルールを、実
 - 1指示1要件を徹底し、差分が追える単位で進める
 - GitHub Copilotライセンス保有者は自ライセンスを優先活用する
 
-> 実装ワークフローの詳細は [[knowledge/vibe-coding-guideline]] を参照。
+> 実装ワークフローの詳細は [[vibe-coding-guideline]] を参照。
 
 ---
 
