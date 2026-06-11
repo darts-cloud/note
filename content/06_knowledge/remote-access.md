@@ -20,7 +20,7 @@ Claude Code（CLIツール）に対して、スマートフォンや外部環境
 ssh user@your-server
 
 # サーバー上でClaude Codeをノンインタラクティブ実行
-claude -p "content/knowledge/remote-access.md の誤字を修正して"
+claude -p "content/06_knowledge/remote-access.md の誤字を修正して"
 ```
 
 **手順**:
