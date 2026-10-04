@@ -299,5 +299,5 @@ npm install -g @anthropic-ai/claude-code
 ```
 
 ## 参考
-- [Claude Code 公式ドキュメント](https://docs.anthropic.com/ja/docs/claude-code)
+- [Claude Code 公式ドキュメント](https://code.claude.com/docs/ja/overview)
 - Qiita記事: https://qiita.com/nogataka/items/e3a87b16ebb32b3a7281
